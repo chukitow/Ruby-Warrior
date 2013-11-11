@@ -3,6 +3,8 @@ class Player
     def initialize
         @health = 20
     end
+    
+    #fui atacado?
     def fueAtacado?
         opcion = false
         if @warrior.health < 20
@@ -11,6 +13,8 @@ class Player
         opcion
     end
     
+    
+    #Hay enemigos en la direccion que indique?
     def enemigosCera(direccion)
         @espacios = @warrior.look(direccion)
         enemigos = Array.new
@@ -25,6 +29,7 @@ class Player
         enemigosT
     end
     
+    #Dependiendo de los enemigos que haya se toman las acciones adecuadas
     def decidirMovimientos!
             if enemigosCera(:backward) && enemigosCera(:forward)
             @warrior.walk!
